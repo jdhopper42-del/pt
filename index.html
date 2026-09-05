@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Purpose Tutoring | Charlotte & Online K-12, SAT, ACT Tutoring</title>
+    <meta name="description" content="Purpose Tutoring provides personalized K-12 tutoring, SAT and ACT prep, college admissions coaching, and online tutoring nationwide from Charlotte, NC.">
+    <link rel="icon" type="image/png" href="assets/Favicon.png">
+    <link rel="preload" as="image" href="assets/HD Purpose Tutoring Logo.png">
+    <link rel="preload" as="image" href="assets/JD-Hopper-tutoring-student.jpg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <button class="floating-testimonials" data-open-testimonials>Testimonials</button>
+      <a class="floating-book" href="tel:+19802243858" aria-label="Call Purpose Tutoring at 980 224 3858">Call Now</a>
+      <button class="section-down" type="button" aria-label="Scroll to next section">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </button>
+
+      <section class="panel hero-panel" id="top" aria-label="Purpose Tutoring introduction">
+        <canvas class="fireworks" id="fireworks" aria-hidden="true"></canvas>
+        <div class="hero-inner">
+          <img class="hero-logo" src="assets/HD Purpose Tutoring Logo.png" alt="Purpose Tutoring logo">
+          <p class="hero-tagline">
+            <em>Elite Tutoring in <strong>Charlotte, NC</strong> and Beyond</em>
+          </p>
+          <div class="service-line" aria-label="Tutoring services">
+            <span>K-12 Subjects</span>
+            <i aria-hidden="true"></i>
+            <span>SAT/ACT</span>
+            <i aria-hidden="true"></i>
+            <span>College Admissions Coaching</span>
+            <i aria-hidden="true"></i>
+            <span>and much more</span>
+          </div>
+          <button class="hero-start-cue" type="button">Tap to get started</button>
+        </div>
+      </section>
+
+      <section class="panel welcome-panel" aria-labelledby="welcome-title">
+        <div class="section-inner narrow reveal">
+          <h1 id="welcome-title">Welcome to Purpose Tutoring!</h1>
+          <p>Our tutors serve students in-person in <strong>Charlotte, NC</strong> and online nationwide. We tailor every session to the individual student, their goals, their struggles, and the way they think and learn. We believe students deserve more than a one-size-fits-all approach to learning.</p>
+          <figure class="welcome-photo">
+            <img src="assets/JD-Hopper-tutoring-student.jpg" alt="JD Hopper tutoring a Purpose Tutoring student one-on-one in Charlotte, North Carolina" loading="eager" fetchpriority="high">
+          </figure>
+        </div>
+      </section>
+
+      <section class="panel spotlight-panel" aria-labelledby="spotlight-title">
+        <div class="section-inner reveal">
+          <div class="section-heading">
+            <h2 id="spotlight-title">Tutor Spotlight</h2>
+          </div>
+          <div class="carousel" aria-roledescription="carousel">
+            <div class="tutor-stage" id="tutorStage"></div>
+          </div>
+          <div class="dots" id="tutorDots" aria-label="Tutor carousel position"></div>
+        </div>
+      </section>
+
+      <section class="panel info-panel" aria-label="Purpose Tutoring information">
+        <div class="section-inner reveal">
+          <div class="info-buttons">
+            <button class="info-button info-button-wide articles-section-button" data-open-articles>
+              <span>Tutoring Articles</span>
+            </button>
+            <button class="info-button info-button-wide" data-open-about>
+              <span>More About Us</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel booking-panel" aria-labelledby="booking-title">
+        <div class="section-inner reveal">
+          <h2 id="booking-title">Serving Students Nationwide Online, with In-Person Tutoring Available in <strong>Charlotte, NC</strong>.</h2>
+          <div class="embedded-booking-card">
+            <h3>Tutoring Request Form</h3>
+            <form name="tutoring-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you/index.html" class="request-form secure-contact-form" data-contact-form>
+              <input type="hidden" name="form-name" value="tutoring-request">
+              <p class="hidden-field">
+                <label>Do not fill this out if you are human: <input name="bot-field"></label>
+              </p>
+
+              <fieldset>
+                <legend>Would you like us to match you with the tutor who best fits your needs, or do you already know which tutor you want to work with? <span>(required)</span></legend>
+                <label class="choice"><input type="radio" name="Tutor preference" value="Match me based on my preferences." required> Match me based on my preferences.</label>
+                <label class="choice"><input type="radio" name="Tutor preference" value="I already have a tutor in mind."> I already have a tutor in mind.</label>
+              </fieldset>
+
+              <label class="field full tutor-in-mind-field" hidden>
+                Which tutor do you want to work with?
+                <input type="text" name="Tutor in mind">
+              </label>
+
+              <label class="field full">
+                What are you looking for tutoring or support in? <span>(required)</span>
+                <input type="text" name="Tutoring or support needed" required>
+              </label>
+
+              <label class="field full">
+                Please share anything you would like us to know about your student's needs, goals, or learning preferences.
+                <textarea name="Student needs goals or learning preferences" rows="4"></textarea>
+              </label>
+
+              <fieldset>
+                <legend>Which days of the week work well for tutoring? <span>(required)</span></legend>
+                <div class="day-grid">
+                  <label><input type="checkbox" name="Days[]" value="Monday"> Monday</label>
+                  <label><input type="checkbox" name="Days[]" value="Tuesday"> Tuesday</label>
+                  <label><input type="checkbox" name="Days[]" value="Wednesday"> Wednesday</label>
+                  <label><input type="checkbox" name="Days[]" value="Thursday"> Thursday</label>
+                  <label><input type="checkbox" name="Days[]" value="Friday"> Friday</label>
+                  <label><input type="checkbox" name="Days[]" value="Saturday"> Saturday</label>
+                  <label><input type="checkbox" name="Days[]" value="Sunday"> Sunday</label>
+                </div>
+              </fieldset>
+
+              <h3>Personal Info</h3>
+              <div class="form-grid">
+                <label class="field">
+                  First Name <span>(required)</span>
+                  <input type="text" name="First Name" required autocomplete="given-name">
+                </label>
+                <label class="field">
+                  Last Name <span>(required)</span>
+                  <input type="text" name="Last Name" required autocomplete="family-name">
+                </label>
+                <label class="field full">
+                  Student(s) Name &amp; Grade <span>(required)</span>
+                  <input type="text" name="Student(s) Name & Grade" required>
+                </label>
+                <label class="field">
+                  Email <span>(required)</span>
+                  <input type="email" name="Email" required autocomplete="email">
+                </label>
+                <label class="field">
+                  Phone <span>(required)</span>
+                  <input type="tel" name="Phone" required autocomplete="tel">
+                </label>
+              </div>
+              <button class="submit-button" type="submit">Submit Request</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p class="footer-contact"><span>(980) 224-3858</span><span class="footer-separator">|</span><span>contact@purposetutoring.com</span></p>
+        <p>&copy; 2026 Hopper Ventures, LLC. All rights reserved</p>
+      </footer>
+    </div>
+
+    <div class="modal" id="contentModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" data-close-modal aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="articlesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="articlesModalTitle">
+      <div class="modal-backdrop" data-close-articles></div>
+      <div class="modal-card articles-card" role="document">
+        <button class="modal-close" data-close-articles aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+        <h2 id="articlesModalTitle">Tutoring Articles</h2>
+        <div class="article-list">
+          <a class="article-link" href="blog/the-human-advantage-a-reality-check-on-ai-in-education/index.html">
+            <img src="assets/articles/the-human-advantage.webp" alt="Blue-lit silhouette for Purpose Tutoring article about AI in education" loading="eager">
+            <span>The Human Advantage: A Reality Check on AI in Education</span>
+          </a>
+          <a class="article-link" href="blog/teachers-are-irreplaceable/index.html">
+            <img src="assets/articles/teachers-are-irreplaceable.webp" alt="Bill Gates seated during an interview for Purpose Tutoring article about teachers and AI" loading="eager">
+            <span>Teachers Are Irreplaceable</span>
+          </a>
+          <a class="article-link" href="blog/the-real-reason-students-struggle-in-math-no-one-explains-the-why/index.html">
+            <img src="assets/articles/teaching-the-why.webp" alt="Student writing math on a chalkboard for Purpose Tutoring article about explaining the why" loading="eager">
+            <span>The Real Reason Students Struggle in Math: No One Explains the Why</span>
+          </a>
+          <a class="article-link" href="blog/why-students-stop-caring-and-how-great-educators-bring-them-back/index.html">
+            <img src="assets/articles/why-students-stop-caring.webp" alt="Wooden letter tiles spelling yes you can for Purpose Tutoring motivation article" loading="eager">
+            <span>Why Students Stop Caring, and How Great Educators Bring Them Back</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="aboutModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+      <div class="modal-backdrop" data-close-about></div>
+      <div class="modal-card articles-card" role="document">
+        <button class="modal-close" data-close-about aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+        <h2 id="aboutModalTitle">More About Us</h2>
+        <div class="article-list">
+          <a class="article-link" href="client-testimonials/index.html">
+            <img src="assets/Testimonials.png" alt="Client testimonials for Purpose Tutoring" loading="eager">
+            <span>Client Testimonials</span>
+          </a>
+          <a class="article-link" href="founding-story/index.html">
+            <img src="assets/Founding Story.png" alt="Founding story image for Purpose Tutoring" loading="eager">
+            <span>Founding Story</span>
+          </a>
+          <a class="article-link" href="mission-statement/index.html">
+            <img src="assets/Mission Statement.png" alt="Mission statement image for Purpose Tutoring" loading="eager">
+            <span>Mission Statement</span>
+          </a>
+          <a class="article-link" href="about-jd-hopper/index.html">
+            <img src="assets/JD-Hopper.jpg" alt="JD Hopper, founder of Purpose Tutoring in Charlotte, North Carolina" loading="eager">
+            <span>About JD Hopper</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="bookingModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+      <div class="modal-backdrop" data-close-booking></div>
+      <div class="modal-card booking-card" role="document">
+        <button class="modal-close" data-close-booking aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+        <h2 id="bookingModalTitle">Tutoring Request Form</h2>
+        <form name="tutoring-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you/index.html" class="request-form secure-contact-form" data-contact-form>
+          <input type="hidden" name="form-name" value="tutoring-request">
+          <p class="hidden-field">
+            <label>Do not fill this out if you are human: <input name="bot-field"></label>
+          </p>
+
+          <fieldset>
+            <legend>Would you like us to match you with the tutor who best fits your needs, or do you already know which tutor you want to work with? <span>(required)</span></legend>
+            <label class="choice"><input type="radio" name="Tutor preference" value="Match me based on my preferences." required> Match me based on my preferences.</label>
+            <label class="choice"><input type="radio" name="Tutor preference" value="I already have a tutor in mind."> I already have a tutor in mind.</label>
+          </fieldset>
+
+          <label class="field full tutor-in-mind-field" hidden>
+            Which tutor do you want to work with?
+            <input type="text" name="Tutor in mind">
+          </label>
+
+          <label class="field full">
+            What are you looking for tutoring or support in? <span>(required)</span>
+            <input type="text" name="Tutoring or support needed" required>
+          </label>
+
+          <label class="field full">
+            Please share anything you would like us to know about your student's needs, goals, or learning preferences.
+            <textarea name="Student needs goals or learning preferences" rows="4"></textarea>
+          </label>
+
+          <fieldset>
+            <legend>Which days of the week work well for tutoring? <span>(required)</span></legend>
+            <div class="day-grid">
+              <label><input type="checkbox" name="Days[]" value="Monday"> Monday</label>
+              <label><input type="checkbox" name="Days[]" value="Tuesday"> Tuesday</label>
+              <label><input type="checkbox" name="Days[]" value="Wednesday"> Wednesday</label>
+              <label><input type="checkbox" name="Days[]" value="Thursday"> Thursday</label>
+              <label><input type="checkbox" name="Days[]" value="Friday"> Friday</label>
+              <label><input type="checkbox" name="Days[]" value="Saturday"> Saturday</label>
+              <label><input type="checkbox" name="Days[]" value="Sunday"> Sunday</label>
+            </div>
+          </fieldset>
+
+          <h3>Personal Info</h3>
+          <div class="form-grid">
+            <label class="field">
+              First Name <span>(required)</span>
+              <input type="text" name="First Name" required autocomplete="given-name">
+            </label>
+            <label class="field">
+              Last Name <span>(required)</span>
+              <input type="text" name="Last Name" required autocomplete="family-name">
+            </label>
+            <label class="field full">
+              Student(s) Name &amp; Grade <span>(required)</span>
+              <input type="text" name="Student(s) Name & Grade" required>
+            </label>
+            <label class="field">
+              Email <span>(required)</span>
+              <input type="email" name="Email" required autocomplete="email">
+            </label>
+            <label class="field">
+              Phone <span>(required)</span>
+              <input type="tel" name="Phone" required autocomplete="tel">
+            </label>
+          </div>
+          <button class="submit-button" type="submit">Submit Request</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="testimonials.js" data-asset-base="assets/"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
