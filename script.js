@@ -1,16 +1,5 @@
 const tutors = [
   {
-    name: "JD Hopper",
-    type: "Founder & All-Purpose Tutor",
-    image: "assets/JD H.png",
-    bio: [
-      "Purpose Tutoring was founded by JD Hopper, a professional K-12 tutor and college admissions coach who, in addition to his tutoring practice, serves as a public speaking instructor at Charlotte Latin School, one of Charlotte's best private schools.",
-      "JD graduated high school with a 4.0 unweighted GPA after completing 15 AP and dual enrollment courses and earning a 5 on every AP exam he took. That academic head start helped him graduate from UNC-Chapel Hill’s rigorous economics program in two years.",
-      "JD tutors all subjects and specializes in math tutoring from early elementary through advanced calculus. His approach is centered on meeting students where they are and helping them understand the “why” behind what they’re doing, so math feels logical and empowering, not like a random set of rules to memorize.",
-      "JD works with a large roster of students, but he continues to take on new clients as his schedule allows because his passion and mission is to help students thrive in school and in life."
-    ]
-  },
-  {
     name: "Sara M.",
     type: "All-Purpose Tutor",
     image: "assets/Sara M.png",
@@ -74,6 +63,7 @@ const tutors = [
 const preloadImageSources = new Set([
   "assets/HD Purpose Tutoring Logo.png",
   "assets/JD-Hopper-tutoring-student.jpg",
+  "assets/JD-Hopper-meet.png",
   "assets/articles/the-human-advantage.webp",
   "assets/articles/teachers-are-irreplaceable.webp",
   "assets/articles/teaching-the-why.webp",
@@ -118,14 +108,19 @@ const modalCopy = {
     html: `
       <h3>Parents say:</h3>
       <blockquote>"Sara is one of the most thoughtful and effective tutors we've ever worked with. She combines deep academic knowledge with a genuine ability to connect with students, and she pushes them to reach higher while still making them feel supported. Our son's improvement in both grades and confidence has been remarkable."</blockquote>
-      <blockquote>“JD Hopper is an exceptional tutor. My son fell a bit behind in math during the school year and JD spent the summer helping him catch up. Within just a few short months, he raised Henry’s confidence level and bridged the gaps so that we could all breathe easy for the first day of school. JD also helps him with his organizational skills and taught him the Cornell note-taking method. JD is not the first or even the second tutor or tutoring center we’ve engaged for this, but he is the first tutor to actually succeed.”</blockquote>
+      <blockquote>"JD Hopper is an exceptional tutor. My son fell a bit behind in math during the school year and JD spent the summer helping him catch up. Within just a few short months, he raised Henry’s confidence level and bridged the gaps so that we could all breathe easy for the first day of school. JD also helps him with his organizational skills and taught him the Cornell note-taking method. JD is not the first or even the second tutor or tutoring center we’ve engaged for this, but he is the first tutor to actually succeed."</blockquote>
+      <blockquote>"One of the things we appreciate most about JD is the way he connects so genuinely with children. Our daughter absolutely lights up when she sees him. He has a natural gift for making children feel excited, happy, and engaged."</blockquote>
+      <blockquote>"JD brings the BEST energy! He is super engaged with our kids, and has the kindest heart and greatest attitude!"</blockquote>
+      <blockquote>"Purpose Tutoring helped our son meet his goals for math and science this semester. Thank you JD for all your support."</blockquote>
+      <blockquote>"JD is the best. He meets kids at their level and can engage immediately."</blockquote>
+      <blockquote>"I can highly recommend JD."</blockquote>
       <blockquote>"We've worked with several tutors over the years, and Sara stands out immediately. She has an incredible ability to explain concepts in a way that actually makes sense to students, and she's thoughtful about how each child learns. Our daughter's confidence and performance in math improved significantly after working with her."</blockquote>
       <blockquote>"Sara is the rare tutor who looks at the whole student, not just the assignment in front of them. She helped our daughter build organization systems, study strategies, and the confidence to advocate for herself at school. The academic improvement has been clear, but the long-term skills she's gained are even more valuable."</blockquote>
       <blockquote>"Sara has a gift for explaining things in a way that just clicks. Our son had struggled with math for years, and after working with her he not only improved his grades but started participating in class and tackling problems independently. We're incredibly grateful for the impact she's had."</blockquote>
       <h3>Students say:</h3>
       <blockquote>"Mikyla is one of the best tutors in the world. She helped me so much and made me the person who I am today. She is such a kindhearted, loving and overall outstanding soul. She taught me to never let anyone affect my character because of the way they feel about me. She taught me to keep going even when times are tough. She is one of the strongest most resilient people I know and I’m so thankful that I got to meet such a wonderful and beautiful person!!! I love her!!!"</blockquote>
       <blockquote>"Sara explains math in a way that actually makes sense. Before working with her, I would get stuck and not know where to start, but now I feel like I understand the steps and can solve problems all on my own. I used to feel really stressed before math tests, but now I feel much more confident and prepared. Sara made learning fun!"</blockquote>
-      <blockquote>“JD has been very helpful with tutoring and paper writing for admission essays. In math, JD truly took his time to explain what is happening in the problem, rather than just giving advice on memorizing formulas. He guided me through logical grammar and encouraged me to dig deep so I could write to my best potential for my admission essay.”</blockquote>
+      <blockquote>“JD has been very helpful with tutoring and paper writing for admission essays. In math, JD truly took his time to explain what is happening in the problem, rather than just giving advice on memorizing formulas. He guided me through logical grammar and encouraged me to dig deep so I could write at my best potential for my admission essay.”</blockquote>
       <blockquote>"Sara is really patient and never makes you feel bad for not understanding something right away. She always finds another way to explain it until it clicks. Working with Sara made me realize my strengths and made me much more confident academically. She was always so encouraging and she taught me so many skills that I'll remember forever."</blockquote>
       <blockquote>"Sara makes learning feel a lot less intimidating. She's encouraging and explains things in a way that makes hard topics feel manageable."</blockquote>
       <blockquote>"Sara helped me learn how to break down problems step by step instead of just guessing. I've started doing a lot better on my homework and tests because I actually understand what I'm doing."</blockquote>
@@ -247,8 +242,7 @@ const contentModal = document.querySelector("#contentModal");
 const modalTitle = document.querySelector("#modalTitle");
 const modalBody = document.querySelector("#modalBody");
 const bookingModal = document.querySelector("#bookingModal");
-const articlesModal = document.querySelector("#articlesModal");
-const aboutModal = document.querySelector("#aboutModal");
+const jdContactModal = document.querySelector("#jdContactModal");
 
 function setModalState(modal, isOpen) {
   modal.classList.toggle("open", isOpen);
@@ -282,20 +276,30 @@ document.querySelectorAll("[data-close-booking]").forEach((item) => {
   item.addEventListener("click", () => setModalState(bookingModal, false));
 });
 
-document.querySelectorAll("[data-open-articles]").forEach((button) => {
-  button.addEventListener("click", () => setModalState(articlesModal, true));
+document.querySelectorAll("[data-college-package]").forEach((button) => {
+  button.addEventListener("click", () => {
+    openContentModal(
+      "College Admissions Package",
+      "<p>Comprehensive, personalized guidance through the college admissions process, including college selection, application and résumé building, essay development, and interview preparation, all designed to maximize your chances of admission to your dream schools!</p>"
+    );
+  });
 });
 
-document.querySelectorAll("[data-close-articles]").forEach((item) => {
-  item.addEventListener("click", () => setModalState(articlesModal, false));
+document.querySelectorAll("[data-current-rates]").forEach((button) => {
+  button.addEventListener("click", () => {
+    openContentModal(
+      "Current Rates",
+      "<p>JD's rates for new clients have steadily increased as demand for his services has grown. <strong>However, once you become a client, he never increases your rate.</strong></p><p>For example, if you begin working with JD at his current rate of $100 per hour and his rate increases to $150 six months later, you'll still pay just $100 per hour. In other words, your rate stays the same as when you first started working with him.</p>"
+    );
+  });
 });
 
-document.querySelectorAll("[data-open-about]").forEach((button) => {
-  button.addEventListener("click", () => setModalState(aboutModal, true));
+document.querySelectorAll("[data-open-jd-contact]").forEach((button) => {
+  button.addEventListener("click", () => setModalState(jdContactModal, true));
 });
 
-document.querySelectorAll("[data-close-about]").forEach((item) => {
-  item.addEventListener("click", () => setModalState(aboutModal, false));
+document.querySelectorAll("[data-close-jd-contact]").forEach((item) => {
+  item.addEventListener("click", () => setModalState(jdContactModal, false));
 });
 
 document.querySelectorAll("[data-open-testimonials]").forEach((button) => {
@@ -313,6 +317,10 @@ const scrollTargets = [...document.querySelectorAll(".panel, .site-footer")];
 let hasShownFloatingBook = false;
 let hasActivatedBookAttention = false;
 let heroCueTimer = null;
+let snapPauseTimer = null;
+let gateTouchStartX = 0;
+let gateTouchStartY = 0;
+let gateTouchHandled = false;
 
 function startBookAttentionLoop() {
   floatingBook.classList.add("attention-loop");
@@ -336,6 +344,41 @@ function updateSectionDown() {
 
 function scrollToNextSection() {
   siteShell.scrollTo({ top: welcomePanel.offsetTop, behavior: "smooth" });
+}
+
+function pauseSnapDuringScroll() {
+  siteShell.classList.add("snap-paused");
+  if (snapPauseTimer) window.clearTimeout(snapPauseTimer);
+  snapPauseTimer = window.setTimeout(() => {
+    siteShell.classList.remove("snap-paused");
+  }, 900);
+}
+
+function getCurrentSectionIndex() {
+  const currentTop = siteShell.scrollTop + 2;
+  const containingIndex = scrollTargets.findIndex((target, index) => {
+    const nextTarget = scrollTargets[index + 1];
+    const sectionEnd = nextTarget ? nextTarget.offsetTop : siteShell.scrollHeight;
+    return currentTop >= target.offsetTop && currentTop < sectionEnd;
+  });
+
+  if (containingIndex !== -1) return containingIndex;
+  return scrollTargets.reduce((bestIndex, target, index) => {
+    const bestDistance = Math.abs(scrollTargets[bestIndex].offsetTop - currentTop);
+    const distance = Math.abs(target.offsetTop - currentTop);
+    return distance < bestDistance ? index : bestIndex;
+  }, 0);
+}
+
+function getSectionBottom(index) {
+  const target = scrollTargets[index];
+  return Math.max(target.offsetTop, target.offsetTop + target.offsetHeight - siteShell.clientHeight);
+}
+
+function scrollToSectionIndex(index, direction) {
+  const targetTop = direction < 0 ? getSectionBottom(index) : scrollTargets[index].offsetTop;
+  pauseSnapDuringScroll();
+  siteShell.scrollTo({ top: targetTop, behavior: "smooth" });
 }
 
 function scheduleHeroCue() {
@@ -366,9 +409,57 @@ sectionDown.addEventListener("click", () => {
   const currentTop = siteShell.scrollTop;
   const nextTarget = scrollTargets.find((target) => target.offsetTop > currentTop + 12);
   if (nextTarget) {
+    pauseSnapDuringScroll();
     siteShell.scrollTo({ top: nextTarget.offsetTop, behavior: "smooth" });
   }
 });
+
+function handleDirectionalSectionScroll(direction, eventTarget) {
+  if (!direction || document.querySelector(".modal.open")) return false;
+  if (eventTarget?.closest?.("input, textarea, select")) return false;
+
+  const index = getCurrentSectionIndex();
+  const currentTop = siteShell.scrollTop;
+  const sectionTop = scrollTargets[index].offsetTop;
+  const sectionBottom = getSectionBottom(index);
+  const canScrollWithinSection = direction > 0
+    ? currentTop < sectionBottom - 8
+    : currentTop > sectionTop + 8;
+
+  if (canScrollWithinSection) return false;
+
+  const nextIndex = index + direction;
+  if (nextIndex < 0 || nextIndex >= scrollTargets.length) return false;
+  scrollToSectionIndex(nextIndex, direction);
+  return true;
+}
+
+siteShell.addEventListener("wheel", (event) => {
+  if (Math.abs(event.deltaY) < 18 || Math.abs(event.deltaY) < Math.abs(event.deltaX)) return;
+  const handled = handleDirectionalSectionScroll(event.deltaY > 0 ? 1 : -1, event.target);
+  if (handled) event.preventDefault();
+}, { passive: false });
+
+siteShell.addEventListener("touchstart", (event) => {
+  gateTouchStartX = event.touches[0].screenX;
+  gateTouchStartY = event.touches[0].screenY;
+  gateTouchHandled = false;
+}, { passive: true });
+
+siteShell.addEventListener("touchmove", (event) => {
+  const deltaX = event.touches[0].screenX - gateTouchStartX;
+  const deltaY = event.touches[0].screenY - gateTouchStartY;
+  if (Math.abs(deltaY) < 24 || Math.abs(deltaY) < Math.abs(deltaX) * 1.15) return;
+  if (gateTouchHandled) {
+    event.preventDefault();
+    return;
+  }
+  const handled = handleDirectionalSectionScroll(deltaY < 0 ? 1 : -1, event.target);
+  if (handled) {
+    gateTouchHandled = true;
+    event.preventDefault();
+  }
+}, { passive: false });
 
 siteShell.addEventListener("scroll", updateSectionDown, { passive: true });
 window.addEventListener("resize", updateSectionDown);
@@ -431,12 +522,61 @@ function initializeRequestForm(requestForm) {
 
 document.querySelectorAll("[data-contact-form]").forEach(initializeRequestForm);
 
+function renderJdTestimonials() {
+  const rolodex = document.querySelector("#jdTestimonialRolodex");
+  if (!rolodex || !window.PurposeTestimonials?.groups) return;
+  const jdGroup = window.PurposeTestimonials.groups.find((group) => group.name === "JD Hopper");
+  if (!jdGroup) return;
+  const selectedTestimonials = jdGroup.testimonials;
+
+  rolodex.innerHTML = selectedTestimonials.map((testimonial, index) => `
+    <blockquote class="jd-rolodex-card" style="--card-index: ${index};">
+      ${testimonial.by ? `<strong>${testimonial.by} says</strong>` : ""}
+      <span>${testimonial.quote}</span>
+    </blockquote>
+  `).join("");
+}
+
+async function submitNetlifyForm(form, pendingText, defaultText) {
+  const submitButton = form.querySelector(".submit-button");
+  submitButton.disabled = true;
+  submitButton.textContent = pendingText;
+
+  try {
+    const formData = new FormData(form);
+    await fetch(SECURE_FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    });
+    window.location.href = THANK_YOU_PAGE;
+  } catch (error) {
+    submitButton.disabled = false;
+    submitButton.textContent = defaultText;
+    alert("There was a problem submitting the form. Please try again.");
+  }
+}
+
+document.querySelectorAll("[data-jd-contact-form]").forEach((form) => {
+  form.addEventListener("submit", async (event) => {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      form.reportValidity();
+      return;
+    }
+
+    event.preventDefault();
+    await submitNetlifyForm(form, "Submitting...", "Submit Inquiry");
+  });
+});
+
+renderJdTestimonials();
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     setModalState(contentModal, false);
     setModalState(bookingModal, false);
-    setModalState(articlesModal, false);
-    setModalState(aboutModal, false);
+    setModalState(jdContactModal, false);
     window.PurposeTestimonials.close();
   }
 });

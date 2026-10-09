@@ -8,16 +8,13 @@
       image: "JD H.png",
       imageClass: "jd-testimonial-photo",
       testimonials: [
-        { by: "Owen", quote: "“I wouldn’t have passed my math class if it wasn’t for JD. He explains things so well in a way that actually makes sense to me.”" },
-        { by: "Adrian", quote: "“Classroom settings are so tough for me because teachers can’t give me the one-on-one attention that I need. I feel like almost all the real learning I get comes from JD. When he and I do the ACT together, he does such a good job of approaching things in a hands-on way and it becomes so much easier to remember it because of the way he taught it. He has also built up my confidence so much making me realize how good I am at visualizing things and thinking outside the box!”" },
-        { by: "Maya", quote: "“JD helped my son pass his entrance exam for an advanced math class! He is thrilled! We will definitely be using him again next year!”" },
-        { by: "Ryan", quote: "“Our fourth grader was in danger of failing math. JD understood the stakes and answered the call! After giving him some information, he used his expertise to create a very detailed and encouraging strategy. His recap texts after each session were so detailed and helpful. She is now on pace to pass her class! He is the best!”" },
-        { by: "Kelly", quote: "“Our daughter has historically hated tutoring, but she loves working with JD! She looks forward to her sessions and always learns so much. I can’t believe someone like him exists!”" },
-        { by: "Priya", quote: "“JD tutors history to my daughter, and he is so passionate and articulate. He’s an incredible storyteller. JD is a very intelligent young man with the best energy, and I recommend him to anyone”" },
-        { by: "Susan", quote: "“I am so grateful for JD. He helps my son with Math 1, and he has a way of connecting with him that completely amazes me. I can’t motivate him to do anything, but somehow JD does so with ease. His grades have improved tremendously, and it’s all thanks to JD!”" },
-        { by: "Ethan", quote: "“JD does group sessions for the ACT with me and my friends. He makes it so fun, and I always learn a lot!”" },
-        { by: "Dana", quote: "“JD Hopper is an exceptional tutor. My son fell a bit behind in math during the school year and JD spent the summer helping him catch up. Within just a few short months, he raised Henry’s confidence level and bridged the gaps so that we could all breathe easy for the first day of school. JD also helps him with his organizational skills and taught him the Cornell note-taking method. JD is not the first or even the second tutor or tutoring center we’ve engaged for this, but he is the first tutor to actually succeed.”" },
-        { by: "Griffin", quote: "“JD has been very helpful with tutoring and paper writing for admission essays. In math, JD truly took his time to explain what is happening in the problem, rather than just giving advice on memorizing formulas. He guided me through logical grammar and encouraged me to dig deep so I could write to my best potential for my admission essay.”" }
+        { by: "Dana", quote: "\"JD Hopper is an exceptional tutor. My son fell a bit behind in math during the school year and JD spent the summer helping him catch up. Within just a few short months, he raised Henry’s confidence level and bridged the gaps so that we could all breathe easy for the first day of school. JD also helps him with his organizational skills and taught him the Cornell note-taking method. JD is not the first or even the second tutor or tutoring center we’ve engaged for this, but he is the first tutor to actually succeed.\"" },
+        { by: "Griffin", quote: "“JD has been very helpful with tutoring and paper writing for admission essays. In math, JD truly took his time to explain what is happening in the problem, rather than just giving advice on memorizing formulas. He guided me through logical grammar and encouraged me to dig deep so I could write at my best potential for my admission essay.”" },
+        { by: "Susie", quote: "\"One of the things we appreciate most about JD is the way he connects so genuinely with children. Our daughter absolutely lights up when she sees him. He has a natural gift for making children feel excited, happy, and engaged.\"" },
+        { by: "Amber", quote: "\"JD brings the BEST energy! He is super engaged with our kids, and has the kindest heart and greatest attitude!\"" },
+        { by: "Sally", quote: "\"Purpose Tutoring helped our son meet his goals for math and science this semester. Thank you JD for all your support.\"" },
+        { by: "Erin", quote: "\"JD is the best. He meets kids at their level and can engage immediately.\"" },
+        { by: "Bastian", quote: "\"I can highly recommend JD.\"" }
       ]
     },
     {
@@ -39,13 +36,6 @@
       image: "Mikyla W.png",
       testimonials: [
         { quote: "\"Mikyla is one of the best tutors in the world. She helped me so much and made me the person who I am today. She is such a kindhearted, loving and overall outstanding soul. She taught me to never let anyone affect my character because of the way they feel about me. She taught me to keep going even when times are tough. She is one of the strongest most resilient people I know and I’m so thankful that I got to meet such a wonderful and beautiful person!!! I love her!!!\"" }
-      ]
-    },
-    {
-      name: "Barrett",
-      image: "Barrett B.png",
-      testimonials: [
-        { quote: "“Barrett tutors Calculus BC for my daughter. Every lesson is so helpful—he is a wonderful and intelligent tutor. My daughter always learns so much with him”" }
       ]
     }
   ];
@@ -97,6 +87,7 @@
             <div class="testimonial-quotes">
               ${group.testimonials.map((testimonial, index) => `
                 <blockquote class="quote-card" style="--quote-index: ${index};">
+                  ${testimonial.by ? `<strong>${escapeHtml(testimonial.by)} says</strong>` : ""}
                   <span>${escapeHtml(testimonial.quote)}</span>
                 </blockquote>
               `).join("")}

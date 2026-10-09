@@ -8,12 +8,13 @@
     <link rel="icon" type="image/png" href="assets/Favicon.png">
     <link rel="preload" as="image" href="assets/HD Purpose Tutoring Logo.png">
     <link rel="preload" as="image" href="assets/JD-Hopper-tutoring-student.jpg">
+    <link rel="preload" as="image" href="assets/JD-Hopper-meet.png">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="site-shell">
       <button class="floating-testimonials" data-open-testimonials>Testimonials</button>
-      <a class="floating-book" href="tel:+19802243858" aria-label="Call Purpose Tutoring at 980 224 3858">Call Now</a>
+      <button class="floating-book" type="button" data-open-jd-contact>Connect With A Tutor</button>
       <button class="section-down" type="button" aria-label="Scroll to next section">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
       </button>
@@ -48,27 +49,112 @@
         </div>
       </section>
 
-      <section class="panel spotlight-panel" aria-labelledby="spotlight-title">
+      <section class="panel meet-jd-panel" aria-labelledby="meet-jd-title">
         <div class="section-inner reveal">
-          <div class="section-heading">
-            <h2 id="spotlight-title">Tutor Spotlight</h2>
+          <div class="meet-jd-layout">
+            <h2 id="meet-jd-title">Meet Founder JD Hopper</h2>
+            <figure class="meet-jd-photo">
+              <img src="assets/JD-Hopper-meet.png" alt="JD Hopper, Charlotte tutor and founder of Purpose Tutoring" loading="eager" fetchpriority="high">
+            </figure>
+            <div class="meet-jd-copy">
+              <p>JD Hopper is a <strong>premier Charlotte tutor</strong> specializing in math and college admissions. After completing 15 college-level classes in high school while maintaining a perfect 4.0 unweighted GPA, <strong>he graduated from UNC Chapel Hill in just two years</strong> before starting his own tutoring practice. This paved the way for him to found Purpose Tutoring, which now <strong>employs several tutors</strong>.</p>
+              <p>Additionally, he teaches public speaking at <strong>Charlotte Latin School</strong>, one of the city's top three private schools, served as president of Queen City Toastmasters, the largest public speaking organization in the Carolinas, from 2025 to 2026, and co-founded Mojo Group LLC to develop software that helps students improve their public speaking and communication skills.</p>
+              <p>His schedule remains extraordinarily busy due to his extensive client lineup, but <strong>he continues to take on new students as spots become available.</strong></p>
+            </div>
           </div>
-          <div class="carousel" aria-roledescription="carousel">
-            <div class="tutor-stage" id="tutorStage"></div>
+
+          <button class="rates-heading" type="button" data-current-rates>Current Rates*</button>
+          <div class="rate-grid" aria-label="JD Hopper tutoring rates for new clients">
+            <article class="rate-card">
+              <h3>K-12 Subjects</h3>
+              <p>$100/hour</p>
+            </article>
+            <article class="rate-card">
+              <h3>SAT/ACT</h3>
+              <p>$100/hour</p>
+            </article>
+            <button class="rate-card rate-card-button" type="button" data-college-package>
+              <h3>College Admissions Package*</h3>
+              <p>$1,600/package</p>
+            </button>
+            <article class="rate-card">
+              <h3>Group Tutoring Sessions</h3>
+              <span>(2 to 4 people)</span>
+              <p>$60/student</p>
+            </article>
           </div>
-          <div class="dots" id="tutorDots" aria-label="Tutor carousel position"></div>
+
+          <div class="jd-rolodex-wrap">
+            <h3>JD Hopper Testimonials</h3>
+            <div class="jd-rolodex" id="jdTestimonialRolodex" aria-label="Scrollable JD Hopper testimonials"></div>
+          </div>
+
+          <button class="jd-contact-button" type="button" data-open-jd-contact>Connect With JD</button>
+
+          <div class="additional-tutors-block" aria-labelledby="spotlight-title">
+            <div class="section-heading">
+              <h2 id="spotlight-title">Additional Tutors</h2>
+            </div>
+            <div class="carousel" aria-roledescription="carousel">
+              <div class="tutor-stage" id="tutorStage"></div>
+            </div>
+            <div class="dots" id="tutorDots" aria-label="Tutor carousel position"></div>
+          </div>
         </div>
       </section>
 
-      <section class="panel info-panel" aria-label="Purpose Tutoring information">
+      <section class="panel info-panel articles-panel" aria-labelledby="articles-section-title">
         <div class="section-inner reveal">
-          <div class="info-buttons">
-            <button class="info-button info-button-wide articles-section-button" data-open-articles>
-              <span>Tutoring Articles</span>
-            </button>
-            <button class="info-button info-button-wide" data-open-about>
-              <span>More About Us</span>
-            </button>
+          <div class="section-heading light-heading">
+            <h2 id="articles-section-title">Tutoring Articles</h2>
+          </div>
+          <div class="article-section-list" aria-label="Scrollable tutoring articles">
+            <a class="article-feature-card" href="blog/why-students-stop-caring-and-how-great-educators-bring-them-back/index.html">
+              <img src="assets/articles/why-students-stop-caring.webp" alt="Wooden letter tiles spelling yes you can for Purpose Tutoring motivation article" loading="eager">
+              <span>Why Students Stop Caring, and How Great Educators Bring Them Back</span>
+              <time datetime="2026-03-19">Mar 19, 2026</time>
+            </a>
+            <a class="article-feature-card" href="blog/the-real-reason-students-struggle-in-math-no-one-explains-the-why/index.html">
+              <img src="assets/articles/teaching-the-why.webp" alt="Student writing math on a chalkboard for Purpose Tutoring article about explaining the why" loading="eager">
+              <span>The Real Reason Students Struggle in Math: No One Explains the Why</span>
+              <time datetime="2026-02-08">Feb 8, 2026</time>
+            </a>
+            <a class="article-feature-card" href="blog/teachers-are-irreplaceable/index.html">
+              <img src="assets/articles/teachers-are-irreplaceable.webp" alt="Bill Gates seated during an interview for Purpose Tutoring article about teachers and AI" loading="eager">
+              <span>Teachers Are Irreplaceable</span>
+              <time datetime="2026-02-01">Feb 1, 2026</time>
+            </a>
+            <a class="article-feature-card" href="blog/the-human-advantage-a-reality-check-on-ai-in-education/index.html">
+              <img src="assets/articles/the-human-advantage.webp" alt="Blue-lit silhouette for Purpose Tutoring article about AI in education" loading="eager">
+              <span>The Human Advantage: A Reality Check on AI in Education</span>
+              <time datetime="2026-01-19">Jan 19, 2026</time>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel more-about-panel" aria-labelledby="more-about-title">
+        <div class="section-inner reveal">
+          <div class="section-heading">
+            <h2 id="more-about-title">More About Us</h2>
+          </div>
+          <div class="about-button-grid">
+            <a class="about-page-button" href="client-testimonials/index.html">
+              <img src="assets/Testimonials.png" alt="Client testimonials for Purpose Tutoring" loading="eager">
+              <span>Client Testimonials</span>
+            </a>
+            <a class="about-page-button" href="founding-story/index.html">
+              <img src="assets/Founding Story.png" alt="Founding story image for Purpose Tutoring" loading="eager">
+              <span>Founding Story</span>
+            </a>
+            <a class="about-page-button" href="mission-statement/index.html">
+              <img src="assets/Mission Statement.png" alt="Mission statement image for Purpose Tutoring" loading="eager">
+              <span>Mission Statement</span>
+            </a>
+            <a class="about-page-button" href="about-jd-hopper/index.html">
+              <img src="assets/JD-Hopper.jpg" alt="JD Hopper, founder of Purpose Tutoring in Charlotte, North Carolina" loading="eager">
+              <span>About JD Hopper</span>
+            </a>
           </div>
         </div>
       </section>
@@ -164,59 +250,40 @@
       </div>
     </div>
 
-    <div class="modal" id="articlesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="articlesModalTitle">
-      <div class="modal-backdrop" data-close-articles></div>
-      <div class="modal-card articles-card" role="document">
-        <button class="modal-close" data-close-articles aria-label="Close">
+    <div class="modal" id="jdContactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="jdContactModalTitle">
+      <div class="modal-backdrop" data-close-jd-contact></div>
+      <div class="modal-card jd-contact-card" role="document">
+        <button class="modal-close" data-close-jd-contact aria-label="Close">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
         </button>
-        <h2 id="articlesModalTitle">Tutoring Articles</h2>
-        <div class="article-list">
-          <a class="article-link" href="blog/the-human-advantage-a-reality-check-on-ai-in-education/index.html">
-            <img src="assets/articles/the-human-advantage.webp" alt="Blue-lit silhouette for Purpose Tutoring article about AI in education" loading="eager">
-            <span>The Human Advantage: A Reality Check on AI in Education</span>
-          </a>
-          <a class="article-link" href="blog/teachers-are-irreplaceable/index.html">
-            <img src="assets/articles/teachers-are-irreplaceable.webp" alt="Bill Gates seated during an interview for Purpose Tutoring article about teachers and AI" loading="eager">
-            <span>Teachers Are Irreplaceable</span>
-          </a>
-          <a class="article-link" href="blog/the-real-reason-students-struggle-in-math-no-one-explains-the-why/index.html">
-            <img src="assets/articles/teaching-the-why.webp" alt="Student writing math on a chalkboard for Purpose Tutoring article about explaining the why" loading="eager">
-            <span>The Real Reason Students Struggle in Math: No One Explains the Why</span>
-          </a>
-          <a class="article-link" href="blog/why-students-stop-caring-and-how-great-educators-bring-them-back/index.html">
-            <img src="assets/articles/why-students-stop-caring.webp" alt="Wooden letter tiles spelling yes you can for Purpose Tutoring motivation article" loading="eager">
-            <span>Why Students Stop Caring, and How Great Educators Bring Them Back</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" id="aboutModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
-      <div class="modal-backdrop" data-close-about></div>
-      <div class="modal-card articles-card" role="document">
-        <button class="modal-close" data-close-about aria-label="Close">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-        </button>
-        <h2 id="aboutModalTitle">More About Us</h2>
-        <div class="article-list">
-          <a class="article-link" href="client-testimonials/index.html">
-            <img src="assets/Testimonials.png" alt="Client testimonials for Purpose Tutoring" loading="eager">
-            <span>Client Testimonials</span>
-          </a>
-          <a class="article-link" href="founding-story/index.html">
-            <img src="assets/Founding Story.png" alt="Founding story image for Purpose Tutoring" loading="eager">
-            <span>Founding Story</span>
-          </a>
-          <a class="article-link" href="mission-statement/index.html">
-            <img src="assets/Mission Statement.png" alt="Mission statement image for Purpose Tutoring" loading="eager">
-            <span>Mission Statement</span>
-          </a>
-          <a class="article-link" href="about-jd-hopper/index.html">
-            <img src="assets/JD-Hopper.jpg" alt="JD Hopper, founder of Purpose Tutoring in Charlotte, North Carolina" loading="eager">
-            <span>About JD Hopper</span>
-          </a>
-        </div>
+        <h2 id="jdContactModalTitle">Connect With A Tutor</h2>
+        <form name="jd-tutoring-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you/index.html" class="request-form jd-contact-form secure-contact-form" data-jd-contact-form>
+          <input type="hidden" name="form-name" value="jd-tutoring-inquiry">
+          <p class="hidden-field">
+            <label>Do not fill this out if you are human: <input name="bot-field"></label>
+          </p>
+          <label class="field">
+            Name <span>(required)</span>
+            <input type="text" name="Name" required autocomplete="name">
+          </label>
+          <label class="field">
+            Subject <span>(required)</span>
+            <input type="text" name="Subject" required>
+          </label>
+          <label class="field">
+            Email <span>(required)</span>
+            <input type="email" name="Email" required autocomplete="email">
+          </label>
+          <label class="field">
+            Phone Number <span>(optional)</span>
+            <input type="tel" name="Phone" autocomplete="tel">
+          </label>
+          <label class="field">
+            Message <span>(required)</span>
+            <textarea name="Message" rows="5" required></textarea>
+          </label>
+          <button class="submit-button" type="submit">Submit Inquiry</button>
+        </form>
       </div>
     </div>
 

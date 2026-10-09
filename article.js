@@ -28,6 +28,7 @@ document.querySelectorAll("[data-share-article]").forEach((button) => {
 
 const bookingButtons = [...document.querySelectorAll("[data-open-booking]")];
 const testimonialButtons = [...document.querySelectorAll("[data-open-testimonials]")];
+const jdContactButtons = [...document.querySelectorAll("[data-open-jd-contact]")];
 const floatingBook = document.querySelector(".floating-book");
 let hasActivatedBookAttention = false;
 
@@ -39,6 +40,98 @@ function startBookAttentionLoop() {
 testimonialButtons.forEach((button) => {
   button.addEventListener("click", () => window.PurposeTestimonials.open());
 });
+
+function submitSimpleNetlifyForm(form, pendingText, defaultText) {
+  const submitButton = form.querySelector(".submit-button");
+  submitButton.disabled = true;
+  submitButton.textContent = pendingText;
+
+  const formData = new FormData(form);
+  return fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  }).then(() => {
+    window.location.href = thankYouPage;
+  }).catch(() => {
+    submitButton.disabled = false;
+    submitButton.textContent = defaultText;
+    alert("There was a problem submitting the form. Please try again.");
+  });
+}
+
+if (jdContactButtons.length) {
+  document.body.insertAdjacentHTML("beforeend", `
+    <div class="modal" id="jdContactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="jdContactModalTitle">
+      <div class="modal-backdrop" data-close-jd-contact></div>
+      <div class="modal-card jd-contact-card" role="document">
+        <button class="modal-close" data-close-jd-contact aria-label="Close">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+        <h2 id="jdContactModalTitle">Connect With A Tutor</h2>
+        <form name="jd-tutoring-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="${thankYouPage}" class="request-form jd-contact-form secure-contact-form" data-jd-contact-form>
+          <input type="hidden" name="form-name" value="jd-tutoring-inquiry">
+          <p class="hidden-field">
+            <label>Do not fill this out if you are human: <input name="bot-field"></label>
+          </p>
+          <label class="field">
+            Name <span>(required)</span>
+            <input type="text" name="Name" required autocomplete="name">
+          </label>
+          <label class="field">
+            Subject <span>(required)</span>
+            <input type="text" name="Subject" required>
+          </label>
+          <label class="field">
+            Email <span>(required)</span>
+            <input type="email" name="Email" required autocomplete="email">
+          </label>
+          <label class="field">
+            Phone Number <span>(optional)</span>
+            <input type="tel" name="Phone" autocomplete="tel">
+          </label>
+          <label class="field">
+            Message <span>(required)</span>
+            <textarea name="Message" rows="5" required></textarea>
+          </label>
+          <button class="submit-button" type="submit">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  `);
+
+  const jdContactModal = document.querySelector("#jdContactModal");
+  const jdContactForm = jdContactModal.querySelector("[data-jd-contact-form]");
+
+  function setJdContactModalState(isOpen) {
+    jdContactModal.classList.toggle("open", isOpen);
+    jdContactModal.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+
+  jdContactButtons.forEach((button) => {
+    button.addEventListener("click", () => setJdContactModalState(true));
+  });
+
+  document.querySelectorAll("[data-close-jd-contact]").forEach((item) => {
+    item.addEventListener("click", () => setJdContactModalState(false));
+  });
+
+  jdContactForm.addEventListener("submit", async (event) => {
+    if (!jdContactForm.checkValidity()) {
+      event.preventDefault();
+      jdContactForm.reportValidity();
+      return;
+    }
+
+    event.preventDefault();
+    await submitSimpleNetlifyForm(jdContactForm, "Submitting...", "Submit Inquiry");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setJdContactModalState(false);
+  });
+}
 
 if (floatingBook) {
   const activateBookAttention = () => {

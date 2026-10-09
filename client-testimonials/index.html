@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Client Testimonials | Purpose Tutoring Reviews</title>
+    <meta name="description" content="Read testimonials from Purpose Tutoring families and students about JD Hopper, Sara M., Mikyla, and personalized tutoring support.">
+    <link rel="icon" type="image/png" href="../assets/Favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="article-page standard-page">
+    <button class="floating-testimonials" type="button" data-open-testimonials>Testimonials</button>
+    <button class="floating-book" type="button" data-open-jd-contact>Connect With A Tutor</button>
+    <main class="article-shell">
+      <header class="article-header">
+        <div class="article-topbar">
+          <a class="article-brand" href="../index.html">
+            <img src="../assets/HD Purpose Tutoring Logo.png" alt="Purpose Tutoring logo">
+          </a>
+        </div>
+        <div class="article-hero">
+          <h1>Client Testimonials</h1>
+          <div class="article-image">
+            <img src="../assets/Testimonials.png" alt="Client testimonials for Purpose Tutoring">
+          </div>
+        </div>
+      </header>
+      <section class="testimonial-page-mount" id="testimonialPageMount" aria-label="Client testimonials carousel"></section>
+    </main>
+    <footer class="article-footer">
+      <div class="article-footer-inner">
+        <p class="footer-contact"><span>(980) 224-3858</span><span class="footer-separator">|</span><span>contact@purposetutoring.com</span></p>
+        <p>&copy; 2026 Hopper Ventures, LLC. All rights reserved</p>
+      </div>
+    </footer>
+    <script src="../testimonials.js" data-asset-base="../assets/"></script>
+    <script>
+      window.PurposeTestimonials.render(document.querySelector("#testimonialPageMount"));
+    </script>
+    <script src="../article.js" data-thank-you="../thank-you/index.html"></script>
+  </body>
+</html>
